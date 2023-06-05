@@ -3,7 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const RESIN_MS = 8 * 60 * 1000;
-const RESIN_MS_DAILY_DELAY = 5 * 60 * 1000; //-5min
+const RESIN_MS_DAILY_DELAY = 5 * 60 * 1000 + 5 * 1000; //-5min +5sec
 const DATE_DISPLAY_OPTIONS = {
   year: 'numeric',
   month: 'long',
