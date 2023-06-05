@@ -100,7 +100,7 @@ let timer = null;
 let singleResinTimer = null;
 let SRTInterval = 0;
 
-SRTTick = () => {
+const SRTTick = () => {
   console.log('tick: got one resin more');
   resinInput.value = Number(resinInput.value) + 1;
   saveData();
