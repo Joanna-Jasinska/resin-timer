@@ -225,5 +225,6 @@ singleResinTimer = setInterval(() => {
   SRTTick();
   singleResinTimer = setInterval(SRTTick, RESIN_MS);
 }, getMSToNearestResin());
+title.innerHTML = resin();
 // --------------------------------------
 // --------------------------------------
