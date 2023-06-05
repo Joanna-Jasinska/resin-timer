@@ -16,3 +16,11 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.value,
+.warning {
+  font-weight: bold;
+}
+.warning {
+  color: red;
+}
