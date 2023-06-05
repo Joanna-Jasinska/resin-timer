@@ -102,9 +102,9 @@ let SRTInterval = 0;
 
 const SRTTick = () => {
   console.log('tick: got one resin more');
-  resinInput.value = Number(resinInput.value) + 1;
+  resinInput.value = Number(resin()) + 1;
   saveData();
-  Notify.info(`Rasin increased to ${resinInput.value}`);
+  Notify.info(`Resin increased to ${resinInput.value}`);
 };
 
 const getMSToNearestResin = () => {
