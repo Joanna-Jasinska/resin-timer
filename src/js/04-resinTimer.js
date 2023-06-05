@@ -25,6 +25,7 @@ const add20 = document.querySelector('[data-plus]');
 const remove20 = document.querySelector('[data-minus]');
 const warningFull = document.querySelector('[data-warningFull]');
 const saveCheckbox = document.querySelector('#save');
+const title = document.querySelector('title');
 
 let initNow = 0; //Number(new Date() - RESIN_MS_DAILY_DELAY); //.getTime();
 
@@ -34,6 +35,7 @@ let lastData = {
   saving: true,
 };
 const saveData = () => {
+  title.innerHTML = resin();
   if (saving()) {
     const settings = {
       date: Number(new Date() - RESIN_MS_DAILY_DELAY),
