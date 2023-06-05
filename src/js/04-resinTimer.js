@@ -20,6 +20,7 @@ const saving = () => document.querySelector('#save').checked;
 const next20 = document.querySelector('[data-20]');
 const next40 = document.querySelector('[data-40]');
 const next60 = document.querySelector('[data-60]');
+const next120 = document.querySelector('[data-120]');
 const fullAt = document.querySelector('[data-date]');
 const add20 = document.querySelector('[data-plus]');
 const remove20 = document.querySelector('[data-minus]');
@@ -174,6 +175,10 @@ const updateR = () => {
     Number(getGoalDateByResin(resin(), 60))
   ).toLocaleDateString('pl-PL', DATE_DISPLAY_OPTIONS);
   next60.innerHTML = d60;
+  const d120 = new Date(
+    Number(getGoalDateByResin(resin(), 120))
+  ).toLocaleDateString('pl-PL', DATE_DISPLAY_OPTIONS);
+  next120.innerHTML = d120;
   fullAt.innerHTML = new Date(
     Number(getGoalDateByResin(resin(), 160))
   ).toLocaleDateString('pl-PL', DATE_DISPLAY_OPTIONS);
@@ -255,7 +260,7 @@ const setIcon = () => {
   //   return;
   // }
   // icon.href = './icons/resin0.ico';
-  console.log(icon);
+  // console.log(icon);
 };
 // --------------------------------------
 // --------------------------------------
