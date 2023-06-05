@@ -158,7 +158,7 @@ const dateToStr = d => {
   return ``;
 };
 const updateR = () => {
-  filledMS = getGoalDateByResin(resin(), 160);
+  const filledMS = getGoalDateByResin(resin(), 160);
   const filledDate = new Date(filledMS);
   let timeDifference = Number(filledMS) - Number(new Date());
   let countdown = objectifyMs(timeDifference);
