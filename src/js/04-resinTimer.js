@@ -55,7 +55,7 @@ const updateData = () => {
   }
   initNow = Number(new Date() - RESIN_MS_DAILY_DELAY);
   const betweenSavedTime = initNow - lastData.date;
-  const addedResin = Number(betweenSavedTime / RESIN_MS).toFixed(0) - 0;
+  const addedResin = Math.floor(betweenSavedTime / RESIN_MS) - 0;
   const newResin = 0 + Number(lastData.resin + addedResin);
   // Notify.failure(
   //   `resin previously:${lastData.resin} resin to be added: ${addedResin} newResin =${newResin}`
@@ -117,12 +117,10 @@ const getMSToNearestResin = () => {
     RESIN_MS_DAILY_DELAY;
 
   const nextRMS = RESIN_MS - (todayMS % RESIN_MS);
-  Notify.info(
-    `Resin incease in ${(nextRMS / 60000).toFixed(0)}m  ${
-      ((nextRMS % 60000) / 1000).toFixed(0) - 1
-    }s`
-  );
-  return RESIN_MS - (todayMS % RESIN_MS);
+  const nextRMins = Math.floor(nextRMS / 60000) - 0;
+  const nextRSecs = Math.floor((nextRMS - nextRMins * 60 * 1000) / 1000) - 0;
+  Notify.info(`Resin incease in ${nextRMins}m  ${nextRSecs - 1}s`);
+  return nextRMS;
 };
 
 function objectifyMs(ms) {
