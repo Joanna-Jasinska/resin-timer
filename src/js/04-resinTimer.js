@@ -158,8 +158,9 @@ const dateToStr = d => {
   return ``;
 };
 const updateR = () => {
-  countdownDate = getGoalDateByResin(resin(), 160);
-  let timeDifference = Number(countdownDate) - Number(new Date());
+  filledMS = getGoalDateByResin(resin(), 160);
+  const filledDate = new Date(filledMS);
+  let timeDifference = Number(filledMS) - Number(new Date());
   let countdown = objectifyMs(timeDifference);
   next20.innerHTML = DateObjToStr(
     objectifyMs(Number(getGoalDateByResin(resin(), 20)) - Number(new Date())),
@@ -176,10 +177,12 @@ const updateR = () => {
   fullAt.innerHTML = new Date(
     Number(getGoalDateByResin(resin(), 160))
   ).toLocaleDateString('pl-PL', DATE_DISPLAY_OPTIONS);
+  // Notify.failure(filledDate.getHours());
   warningFull.innerHTML =
-    Number(new Date(getGoalDateByResin(resin(), 160)).getDay()) ==
-    Number(new Date().getDay())
+    Number(filledDate.getDay()) == Number(new Date().getDay())
       ? ' Dzisiaj'
+      : filledDate.getHours() < 9
+      ? 'Rano'
       : ' ';
   // daysDisplay.innerHTML = countdown.days;
   // hoursDisplay.innerHTML = countdown.hours;
