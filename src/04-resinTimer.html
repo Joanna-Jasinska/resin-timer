@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown timer</title>
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body>
+    <p><a href="index.html">Go back</a></p>
+    <span>Current Resin</span>
+    <input
+      type="number"
+      class="form-control"
+      id="resin"
+      min="0"
+      max="160"
+      placeholder="0"
+    />
+    <button type="button" data-plus>+20</button>
+    <button type="button" data-minus>-20</button>
+    <!-- <input
+      type="number"
+      class="form-control"
+      id="wanted"
+      min="20"
+      max="160"
+      placeholder="40"
+      value="40"
+      step="20"
+    /> -->
+    <!-- <button
+      class="btn btn-outline-dark"
+      id="resin_button"
+      onclick="calculateInit()"
+    >
+      Calculate</button
+    > -->
+    <br /><br />
+
+    <div class="timer">
+      <div class="field">
+        <span class="label">Full Resin at: </span>
+        <span class="value" data-date>00</span>
+      </div>
+      <br />
+      <div class="field">
+        <span class="label">Next 20 Resin in: </span>
+        <span class="value" data-20>00</span>
+      </div>
+      <div class="field">
+        <span class="label">Next 40 Resin in: </span>
+        <span class="value" data-40>00</span>
+      </div>
+      <div class="field">
+        <span class="label">Next 60 Resin at: </span>
+        <span class="value" data-60>00</span>
+      </div>
+      <br />
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+    <!-- <input type="text" id="datetime-picker" />
+    <button type="button" data-start>Start</button> -->
+
+    <script src="js/04-resinTimer.js" type="module"></script>
+  </body>
+</html>

@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://joanna-jasinska.github.io/goit-js-hw-09",
+  "homepage": "https://joanna-jasinska.github.io/resin-timer",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
+    "build": "parcel build src/*.html --public-url /resin-timer/"
   },
   "repository": {
     "type": "git",
