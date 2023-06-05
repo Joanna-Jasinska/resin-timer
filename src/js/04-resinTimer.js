@@ -35,7 +35,7 @@ let lastData = {
   saving: true,
 };
 const saveData = () => {
-  title.innerHTML = resin();
+  setIcon();
   if (saving()) {
     const settings = {
       date: Number(new Date() - RESIN_MS_DAILY_DELAY),
@@ -196,6 +196,67 @@ const setRTimer = () => {
 const onInputResinChange = () => {
   saveData();
 };
+function changeFavicon(text) {
+  const canvas = document.createElement('canvas');
+  canvas.height = 64;
+  canvas.width = 64;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#99ccff';
+  ctx.font = '124px serif'; //'64px serif'
+  ctx.fillText('●', -10, 70); //🌘🌙⚸☾
+  ctx.fillStyle = 'white';
+  ctx.font = '102px serif'; //'64px serif'
+  ctx.fillText('●', 8, 61); //🌘🌙⚸☾
+  ctx.fillStyle = '#ffffe6';
+  ctx.font = '64px serif'; //'64px serif'
+  // ctx.fillText(text, -3, 47);
+  ctx.fillText(text, 4, 54);
+  ctx.fillStyle = 'black';
+  ctx.font = '64px serif'; //'64px serif'
+  ctx.fillText(text, 0, 50);
+  ctx.fillText(text, 1, 51);
+
+  const link = document.createElement('link');
+  const oldLinks = document.querySelectorAll('link[rel="icon"]');
+  oldLinks.forEach(e => e.parentNode.removeChild(e));
+  link.id = 'dynamic-favicon';
+  link.rel = 'icon';
+  link.href = canvas.toDataURL();
+  document.head.appendChild(link);
+}
+const setIcon = () => {
+  title.innerHTML = resin();
+  // const icon = document.querySelector('#icon');
+  const r = resin();
+  changeFavicon(r);
+  // if (r >= 160) {
+  //   icon.href = './icons/resinlaser.ico';
+  //   console.log(icon);
+  //   return;
+  // }
+  // if (r >= 60) {
+  //   icon.href = './icons/resin60.ico';
+  //   console.log(icon);
+  //   return;
+  // }
+  // if (r >= 40) {
+  //   icon.href = './icons/resin40.ico';
+  //   console.log(icon);
+  //   return;
+  // }
+  // if (r >= 20) {
+  //   icon.href = './icons/resin20.ico';
+  //   console.log(icon);
+  //   return;
+  // }
+  // if (r >= 10) {
+  //   icon.href = './icons/resin10.ico';
+  //   console.log(icon);
+  //   return;
+  // }
+  // icon.href = './icons/resin0.ico';
+  console.log(icon);
+};
 // --------------------------------------
 // --------------------------------------
 add20.addEventListener('click', () => {
@@ -225,6 +286,6 @@ singleResinTimer = setInterval(() => {
   SRTTick();
   singleResinTimer = setInterval(SRTTick, RESIN_MS);
 }, getMSToNearestResin());
-title.innerHTML = resin();
+setIcon();
 // --------------------------------------
 // --------------------------------------
